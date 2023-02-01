@@ -7,73 +7,48 @@
 
 import UIKit
 
-//struct Task {
-//    let taskName : String?
-//    let taskDate : String?
-//    let description : String?
-//    
-//    init(taskName: String?, taskDate: String?, description: String?) {
-//            self.taskName = taskName
-//            self.taskDate = taskDate
-//            self.description = description
-//        }
-//}
-//
-//var tasks = [Task]() 
-
 
 class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
     
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var dateTextField: UITextField!
-    
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var buttonYes: UIButton!
-    
     @IBOutlet weak var buttonNo: UIButton!
-    
     @IBOutlet weak var decriptionView: UITextView!
-    
     @IBOutlet weak var createButton: UIButton!
     
-    
-    
-   
-    
+    var taskslist : [Task] = []
     let datePicker = UIDatePicker()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
         nameTextField.delegate = self
         decriptionView.delegate = self
         nameLabel.isHidden = true
-
-
+        
+        
     }
-
+    
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-
+        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneButton], animated: true)
-
+        
         return toolbar
     }
-
+    
     func createDatePicker() {
         datePicker.preferredDatePickerStyle = .wheels
         dateTextField.inputView = datePicker
         dateTextField.inputAccessoryView = createToolbar()
     }
-
+    
     @objc func donePressed() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -81,13 +56,13 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         self.dateTextField.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
-
-
-
+    
+    
+    
     //taskfield limitations
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         let maxCharacters = 20
         let minCharacters = 10
         let currentString :NSString = (textField.text ?? "") as NSString
@@ -104,9 +79,9 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
             nameLabel.isHidden = true
         }
         return newString.length <= maxCharacters
-
+        
     }
-
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let minCharacters = 10
         let maxCharacters = 80
@@ -123,23 +98,19 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         }
         return newString.length  <= maxCharacters
     }
-
-
+    
+    
     //createbutton
-
+    
     @IBAction func createButtonTapped(_ sender: UIButton) {
-
+        
         let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ViewController_2
-       // let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text, description: decriptionView.text)
-       // tasks.append(task)
-
-        vc.taskName = nameTextField.text ?? ""
-        vc.taskDate = dateTextField.text ?? ""
+        let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text)
+        taskslist.append(task)
+        vc.createdTaskList = taskslist
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
-    //Radio Button
-
+    
     @IBAction func remainderselectio(_ sender: UIButton) {
         if sender == buttonYes{
             buttonYes.isSelected = true
