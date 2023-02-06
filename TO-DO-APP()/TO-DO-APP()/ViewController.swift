@@ -9,8 +9,6 @@ import UIKit
 
 
 class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
-    
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
@@ -22,16 +20,32 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
     
     var taskslist : [Task] = []
     let datePicker = UIDatePicker()
-    
+//    datePicker.minimumDate = Date()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
         nameTextField.delegate = self
         decriptionView.delegate = self
         nameLabel.isHidden = true
+        createButton.layer.cornerRadius = 20
+        decriptionView.layer.cornerRadius = 10
+        nameTextField.layer.cornerRadius = 10
+        dateTextField.layer.cornerRadius = 10
+        datePicker.minimumDate = Date()
+//        decriptionView.text = ""
+  decriptionView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
+//        decriptionView.isSelectable = true
+//        decriptionView.isEditable = false
+//        decriptionView.isUserInteractionEnabled = true
+//        decriptionView.dataDetectorTypes = .link
+
+//        dateTextField.borderStyle = .bezel
+//        nameTextField.borderStyle = .bezel
+        decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         
-        
-    }
+
+      }
     
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
@@ -109,6 +123,7 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         taskslist.append(task)
         vc.createdTaskList = taskslist
         self.navigationController?.pushViewController(vc, animated: true)
+        //self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func remainderselectio(_ sender: UIButton) {
