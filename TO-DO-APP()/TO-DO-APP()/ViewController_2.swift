@@ -66,44 +66,46 @@ extension ViewController_2: UITableViewDataSource, UITableViewDelegate {
         bottomSheetVC.transitioningDelegate = self
         present(bottomSheetVC, animated: true, completion: nil)
         //cell.layer.borderColor = UIColor.black.cgColor
-
+        
     }
-
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // Add the bottom card view
-//        let bottomCardView = UIView()
-//        bottomCardView.backgroundColor = .lightGray
-//        bottomCardView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: view.frame.height / 2)
-//        view.addSubview(bottomCardView)
-//
-//        bottomCardView.translatesAutoresizingMaskIntoConstraints = false
-//        bottomCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        bottomCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        bottomCardView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        bottomCardView.heightAnchor.constraint(equalToConstant: view.frame.height / 2).isActive = true
-//        let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown))
-//        swipeDownGesture.direction = .down
-//        bottomCardView.addGestureRecognizer(swipeDownGesture)
-//    }
-//    @objc func handleSwipeDown(gesture: UISwipeGestureRecognizer) {
-//        let bottomCardView = gesture.view
-//        UIView.animate(withDuration: 0.3) {
-//            bottomCardView?.frame.origin.y = self.view.frame.height
-//        }
-//    }
-//
+    //
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        // Add the bottom card view
+    //        let bottomCardView = UIView()
+    //        bottomCardView.backgroundColor = .lightGray
+    //        bottomCardView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: view.frame.height / 2)
+    //        view.addSubview(bottomCardView)
+    //
+    //        bottomCardView.translatesAutoresizingMaskIntoConstraints = false
+    //        bottomCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    //        bottomCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    //        bottomCardView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    //        bottomCardView.heightAnchor.constraint(equalToConstant: view.frame.height / 2).isActive = true
+    //        let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown))
+    //        swipeDownGesture.direction = .down
+    //        bottomCardView.addGestureRecognizer(swipeDownGesture)
+    //        down bottomview = area.split.fix
+    //    }
+    //    @objc func handleSwipeDown(gesture: UISwipeGestureRecognizer) {
+    //        let bottomCardView = gesture.view
+    //        UIView.animate(withDuration: 0.3) {
+    //            bottomCardView?.frame.origin.y = self.view.frame.height
+    //        }
+    //    }
+    //
+    //
+    //
+    //
+    //}
     
-   
+    //extension ViewController_2: UIViewControllerTransitioningDelegate {
+    //    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    //        return BottomSheetPresentationController(presentedViewController: presented, presenting: presenting)
+    //    }
+    //}
+    
+    
+    
     
 }
-
-//extension ViewController_2: UIViewControllerTransitioningDelegate {
-//    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-//        return BottomSheetPresentationController(presentedViewController: presented, presenting: presenting)
-//    }
-//}
-
-
-
-
