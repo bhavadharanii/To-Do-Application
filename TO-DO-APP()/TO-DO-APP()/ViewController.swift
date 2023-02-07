@@ -20,8 +20,8 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
     
     var taskslist : [Task] = []
     let datePicker = UIDatePicker()
-//    datePicker.minimumDate = Date()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
@@ -33,19 +33,34 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         nameTextField.layer.cornerRadius = 10
         dateTextField.layer.cornerRadius = 10
         datePicker.minimumDate = Date()
-//        decriptionView.text = ""
-  decriptionView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
-//        decriptionView.isSelectable = true
-//        decriptionView.isEditable = false
-//        decriptionView.isUserInteractionEnabled = true
-//        decriptionView.dataDetectorTypes = .link
-
-//        dateTextField.borderStyle = .bezel
-//        nameTextField.borderStyle = .bezel
+        decriptionView.dataDetectorTypes = .link
+        decriptionView.isSelectable = true
+        decriptionView.isEditable = true
         decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
-        
 
-      }
+//            //decriptionView.setLinkTextColor(Color.BLUE);
+//        decriptionView.delegate = self
+//                //Set the text color of links to blue
+//                decriptionView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
+//                //Make the text view selectable, not editable, and enable user interaction
+//                decriptionView.isSelectable = true
+//                decriptionView.isEditable = true
+//                decriptionView.isUserInteractionEnabled = true
+//                //Set the data detector type to .link, to detect and display links
+//                decriptionView.dataDetectorTypes = .link
+        //        decriptionView.text = ""
+        //decriptionView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        //        decriptionView.isSelectable = true
+        //        decriptionView.isEditable = false
+        //        decriptionView.isUserInteractionEnabled = true
+        //        decriptionView.dataDetectorTypes = .link
+        
+        //        dateTextField.borderStyle = .bezel
+        //        nameTextField.borderStyle = .bezel
+        //  decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        
+        
+    }
     
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()

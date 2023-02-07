@@ -68,7 +68,7 @@
                                 <color key="shadowColor" red="0.38519886219999999" green="0.62809548250000002" blue="0.85314256519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="985-cj-puq">
+                            <textView contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="985-cj-puq">
                                 <rect key="frame" x="16" y="403" width="357" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -77,8 +77,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="oQE-6L-ODs"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
@@ -148,6 +147,7 @@
                                     <constraint firstAttribute="height" constant="50" id="H5c-lT-Yob"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <size key="titleShadowOffset" width="3" height="1"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Create">
@@ -282,11 +282,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="abe-ls-Ru8"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" red="0.1075437912" green="0.069107847959999996" blue="0.025622694330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <color key="shadowColor" red="0.5401134299" green="0.60703662989999996" blue="0.63268210670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <size key="shadowOffset" width="3" height="-1"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="-2" height="-1"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.73811335867933159" green="0.86247210221944992" blue="0.96197910503472217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -359,26 +359,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s4I-bJ-v4R">
-                                <rect key="frame" x="0.0" y="475" width="393" height="343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s4I-bJ-v4R">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGG-7W-rbv">
-                                <rect key="frame" x="7" y="200" width="358" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="leading">
-                                    <attributedString key="attributedSubtitle"/>
-                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                </buttonConfiguration>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ano-sN-zJb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s4I-bJ-v4R" firstAttribute="leading" secondItem="ano-sN-zJb" secondAttribute="leading" id="3dT-p9-nTN"/>
+                            <constraint firstItem="s4I-bJ-v4R" firstAttribute="bottom" secondItem="ano-sN-zJb" secondAttribute="bottom" id="EvO-bw-A9c"/>
+                            <constraint firstItem="s4I-bJ-v4R" firstAttribute="trailing" secondItem="ano-sN-zJb" secondAttribute="trailing" id="H5q-zT-L6A"/>
+                            <constraint firstItem="s4I-bJ-v4R" firstAttribute="top" secondItem="ano-sN-zJb" secondAttribute="top" id="Mwh-4k-952"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCH-Uj-eEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -431,8 +427,8 @@
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
