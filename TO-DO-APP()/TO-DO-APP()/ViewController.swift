@@ -33,42 +33,19 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         nameTextField.layer.cornerRadius = 10
         dateTextField.layer.cornerRadius = 10
         datePicker.minimumDate = Date()
-        decriptionView.dataDetectorTypes = .link
-        decriptionView.isSelectable = true
-        decriptionView.isEditable = true
-        decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
-
-//            //decriptionView.setLinkTextColor(Color.BLUE);
-//        decriptionView.delegate = self
-//                //Set the text color of links to blue
-//                decriptionView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
-//                //Make the text view selectable, not editable, and enable user interaction
-//                decriptionView.isSelectable = true
-//                decriptionView.isEditable = true
-//                decriptionView.isUserInteractionEnabled = true
-//                //Set the data detector type to .link, to detect and display links
-//                decriptionView.dataDetectorTypes = .link
-        //        decriptionView.text = ""
-        //decriptionView.linkTextAttributes = [.foregroundColor: UIColor.systemBlue]
-        //        decriptionView.isSelectable = true
-        //        decriptionView.isEditable = false
-        //        decriptionView.isUserInteractionEnabled = true
-        //        decriptionView.dataDetectorTypes = .link
-        
-        //        dateTextField.borderStyle = .bezel
-        //        nameTextField.borderStyle = .bezel
-        //  decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
-        
+    
+//       decriptionView.dataDetectorTypes = .link
+//        decriptionView.isSelectable = true
+//        decriptionView.isEditable = true
+//        decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         
     }
     
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneButton], animated: true)
-        
         return toolbar
     }
     
@@ -85,7 +62,6 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         self.dateTextField.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
-    
     
     
     //taskfield limitations
@@ -132,13 +108,32 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
     //createbutton
     
     @IBAction func createButtonTapped(_ sender: UIButton) {
-        
-        let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ViewController_2
-        let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text)
+        //let vc = self.destination as? ListViewController
+        let vc = ListViewController()
+
+       // let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ListViewController
+        let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
         taskslist.append(task)
         vc.createdTaskList = taskslist
         self.navigationController?.pushViewController(vc, animated: true)
-        //self.present(vc, animated: true, completion: nil)
+   // self.present(vc, animated: true, completion: nil)
+//        if let presentedViewController = self.presentedViewController {
+//            presentedViewController.dismiss(animated: true) { [weak self] in
+//                guard let self = self else { return }
+//                let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ListViewController
+//                let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
+//                taskslist.append(task)
+//                vc.createdTaskList = taskslist
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//        } else {
+//            let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ListViewController
+//            let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
+//            taskslist.append(task)
+//            vc.createdTaskList = taskslist
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+
     }
     
     @IBAction func remainderselectio(_ sender: UIButton) {
@@ -150,6 +145,13 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
             buttonNo.isSelected = true
         }
     }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "showDetailedDescription" {
+    //            let destinationVC = segue.destination as! YourDestinationViewController
+    //            destinationVC.DetailedDescription.text = self.description
+    //        }
+    //    }
+    
 }
 
 
