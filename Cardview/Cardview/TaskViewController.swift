@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
-//  TO-DO-APP()
+//  TaskViewController.swift
+//  Cardview
 //
-//  Created by Fiuser on 23/01/23.
+//  Created by Fiuser on 20/02/23.
 //
 
 import UIKit
 
-
-class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
+class TaskViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,10 +18,8 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
     @IBOutlet weak var decriptionView: UITextView!
     @IBOutlet weak var createButton: UIButton!
     
-    var taskslist : [Task] = []
+    //var taskslist : [Task] = []
     let datePicker = UIDatePicker()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
@@ -33,11 +31,6 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         nameTextField.layer.cornerRadius = 10
         dateTextField.layer.cornerRadius = 10
         datePicker.minimumDate = Date()
-    
-//       decriptionView.dataDetectorTypes = .link
-//        decriptionView.isSelectable = true
-//        decriptionView.isEditable = true
-//        decriptionView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         
     }
     
@@ -104,38 +97,13 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
         return newString.length  <= maxCharacters
     }
     
-    
-    //createbutton
-    
-    @IBAction func createButtonTapped(_ sender: UIButton) {
-        //let vc = self.destination as? ListViewController
-        let vc = ListViewController()
-
-       // let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ListViewController
-        let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
-        taskslist.append(task)
-        vc.createdTaskList = taskslist
-        self.navigationController?.pushViewController(vc, animated: true)
-   // self.present(vc, animated: true, completion: nil)
-//        if let presentedViewController = self.presentedViewController {
-//            presentedViewController.dismiss(animated: true) { [weak self] in
-//                guard let self = self else { return }
-//                let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ListViewController
-//                let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
-//                taskslist.append(task)
-//                vc.createdTaskList = taskslist
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//        } else {
-//            let vc = self.storyboard?.instantiateViewController(identifier: "ViewController_2") as! ListViewController
-//            let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
-//            taskslist.append(task)
-//            vc.createdTaskList = taskslist
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
+    @IBAction func createButtonTapped(_ sender: UIButton){
+         
+        let vc = storyboard?.instantiateViewController(withIdentifier: "upcoming") as! Upcoming
+        self.present(vc, animated: true, completion: nil)
 
     }
-    
+
     @IBAction func remainderselectio(_ sender: UIButton) {
         if sender == buttonYes{
             buttonYes.isSelected = true
@@ -145,13 +113,30 @@ class ViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate{
             buttonNo.isSelected = true
         }
     }
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "showDetailedDescription" {
-    //            let destinationVC = segue.destination as! YourDestinationViewController
-    //            destinationVC.DetailedDescription.text = self.description
-    //        }
-    //    }
     
 }
 
 
+
+
+
+
+
+//let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//let viewController = storyboard.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
+////            return viewController
+////        }()
+//let task = Task(taskName: nameTextField.text, taskDate: dateTextField.text,taskDescription: decriptionView.text)
+//taskslist.append(task)
+//viewController.createdTaskList = taskslist
+//if (self.navigationController?.children == nil) {
+//if let listViewController = self.navigationController?.presentedViewController as? ListViewController {
+//    listViewController.customtableView.reloadData()
+//}
+//self.dismiss(animated: true, completion: {
+//    viewController.customtableView.reloadData()
+//})
+//} else {
+//self.navigationController?.pushViewController(viewController, animated: true)
+//}
+//
